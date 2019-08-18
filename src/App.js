@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 
 import DeviceData from './DeviceData';
+import SearchForm from './SearchForm';
 
-export class App extends Component {
+class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
             data: [],
+            nameFilter: '',
         };
+
+        this.handleFilter = this.handleFilter.bind(this);
     }
 
     async componentDidMount() {
@@ -17,21 +21,25 @@ export class App extends Component {
             });
             const response = await res.json();
             if (response) {
-                console.log(response.data);
                 this.setState({ data: response.data });
             }
         } catch (error) {
-            console.log(error);
+            throw new Error(error);
         }
     }
 
+    handleFilter(filterText) {
+        this.setState({ nameFilter: filterText });
+    }
+
     render() {
-        const { data } = this.state;
+        const { data, nameFilter } = this.state;
         return (
             <div>
                 <h1>Relayr Device Dashboard</h1>
                 <h3>by Guido Santillan.</h3>
-                <DeviceData data={data} />
+                <SearchForm onFilterChange={this.handleFilter} />
+                <DeviceData data={data} nameFilter={nameFilter} />
             </div>
         );
     }

@@ -3,7 +3,7 @@ import React from 'react';
 import DeviceDataItem from './DeviceDataItem';
 import filterByReadingName from './selector/filterByReadingName';
 
-const DeviceData = ({ data }) => {
+const DeviceData = ({ data, nameFilter }) => {
     let activeCounter = 0;
     let inactiveCounter = 0;
 
@@ -15,7 +15,7 @@ const DeviceData = ({ data }) => {
         }
     });
 
-    const filteredData = filterByReadingName(data, '');
+    const filteredData = filterByReadingName(data, nameFilter);
 
     return (
         <div>
