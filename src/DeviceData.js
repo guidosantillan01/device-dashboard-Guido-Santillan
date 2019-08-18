@@ -1,6 +1,7 @@
 import React from 'react';
 
 import DeviceDataItem from './DeviceDataItem';
+import filterByReadingName from './selector/filterByReadingName';
 
 const DeviceData = ({ data }) => {
     let activeCounter = 0;
@@ -14,6 +15,8 @@ const DeviceData = ({ data }) => {
         }
     });
 
+    const filteredData = filterByReadingName(data, '');
+
     return (
         <div>
             {activeCounter + inactiveCounter === data.length ? (
@@ -25,7 +28,7 @@ const DeviceData = ({ data }) => {
                 'Error counting readings'
             )}
 
-            {data.map(reading => {
+            {filteredData.map(reading => {
                 return <DeviceDataItem reading={reading} key={reading.name} />;
             })}
         </div>
