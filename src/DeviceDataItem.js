@@ -6,6 +6,7 @@ class DeviceDataItem extends Component {
             const newStatus = !readingStatus;
             const res = await fetch(
                 `http://127.0.0.1:8888/devices/${readingName}?active=${newStatus}`,
+                { method: 'PATCH' },
             );
             const response = await res.json();
             console.log(response);
