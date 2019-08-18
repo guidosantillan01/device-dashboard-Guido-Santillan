@@ -11,7 +11,7 @@ class App extends Component {
             nameFilter: '',
         };
 
-        this.handleFilter = this.handleFilter.bind(this);
+        this.handleFilterChange = this.handleFilterChange.bind(this);
     }
 
     async componentDidMount() {
@@ -28,7 +28,7 @@ class App extends Component {
         }
     }
 
-    handleFilter(filterText) {
+    handleFilterChange(filterText) {
         this.setState({ nameFilter: filterText });
     }
 
@@ -38,7 +38,7 @@ class App extends Component {
             <div>
                 <h1>Relayr Device Dashboard</h1>
                 <h3>by Guido Santillan.</h3>
-                <SearchForm onFilterChange={this.handleFilter} />
+                <SearchForm onFilterChange={this.handleFilterChange} />
                 <DeviceData data={data} nameFilter={nameFilter} />
             </div>
         );
