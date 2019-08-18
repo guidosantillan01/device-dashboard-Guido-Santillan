@@ -9,3 +9,8 @@
     text-align: center;
     width: 500px;
 }
+
+.device-data-item {
+    padding: 10px;
+    border: 2px;
+}
