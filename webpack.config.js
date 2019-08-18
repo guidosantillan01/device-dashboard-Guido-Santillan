@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     entry: {
-        app: ['react-hot-loader/patch', 'babel-polyfill', './src/index.js'],
+        app: ['react-hot-loader/patch', '@babel/polyfill', './src/index.js'],
     },
     output: {
         publicPath: '/',

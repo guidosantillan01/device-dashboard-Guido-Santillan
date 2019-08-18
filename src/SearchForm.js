@@ -16,7 +16,7 @@ class SearchForm extends Component {
         return (
             <div>
                 <form onChange={this.handleFormChanges}>
-                    <input type="text" />
+                    <input type="text" data-testid="filter-by-name-input" />
                 </form>
             </div>
         );
