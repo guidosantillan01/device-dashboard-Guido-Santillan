@@ -3,7 +3,7 @@ import React from 'react';
 import DeviceDataItem from './DeviceDataItem';
 import filterByReadingName from './selector/filterByReadingName';
 
-const DeviceData = ({ data, nameFilter }) => {
+const DeviceData = ({ data, nameFilter, handleReadingStatusChange }) => {
     let activeCounter = 0;
     let inactiveCounter = 0;
 
@@ -29,7 +29,13 @@ const DeviceData = ({ data, nameFilter }) => {
             )}
 
             {filteredData.map(reading => {
-                return <DeviceDataItem reading={reading} key={reading.name} />;
+                return (
+                    <DeviceDataItem
+                        reading={reading}
+                        key={reading.name}
+                        handleReadingStatusChange={handleReadingStatusChange}
+                    />
+                );
             })}
         </div>
     );
