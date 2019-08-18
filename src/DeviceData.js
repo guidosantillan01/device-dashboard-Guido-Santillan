@@ -1,7 +1,7 @@
 import React from 'react';
 
 import DeviceDataItem from './DeviceDataItem';
-import filterByReadingName from './selector/filterByReadingName';
+import filterByName from './selector/filterByName';
 
 const DeviceData = ({ data, nameFilter, handleReadingStatusChange }) => {
     let activeCounter = 0;
@@ -15,7 +15,7 @@ const DeviceData = ({ data, nameFilter, handleReadingStatusChange }) => {
         }
     });
 
-    const filteredData = filterByReadingName(data, nameFilter);
+    const filteredData = filterByName(data, nameFilter);
 
     return (
         <div>
