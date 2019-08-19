@@ -3,8 +3,11 @@ import { connect } from 'react-redux';
 
 import DeviceData from './DeviceData';
 import SearchForm from './SearchForm';
+import StatusCounter from './StatusCounter';
 
 import { startFetchData } from './actions';
+
+import styles from './styles.css';
 
 class App extends Component {
     constructor(props) {
@@ -18,8 +21,11 @@ class App extends Component {
     render() {
         return (
             <div>
-                <h1>Relayr Device Dashboard</h1>
-                <h3>by Guido Santillan.</h3>
+                <div className={styles.container}>
+                    <h1>Relayr Device Dashboard</h1>
+                    <h3>by Guido Santillan</h3>
+                </div>
+                <StatusCounter />
                 <SearchForm />
                 <DeviceData />
             </div>

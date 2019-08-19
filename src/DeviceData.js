@@ -4,31 +4,13 @@ import { connect } from 'react-redux';
 import DeviceDataItem from './DeviceDataItem';
 import filterByName from './selector/filterByName';
 
+import styles from './styles.css';
+
 const DeviceData = ({ data, filterText }) => {
-    let activeCounter = 0;
-    let inactiveCounter = 0;
-
-    data.map(reading => {
-        if (reading.active) {
-            activeCounter++;
-        } else {
-            inactiveCounter++;
-        }
-    });
-
     const filteredData = filterByName(data, filterText);
 
     return (
-        <div>
-            {activeCounter + inactiveCounter === data.length ? (
-                <div>
-                    <p>Active readings: {activeCounter}</p>
-                    <p>Inactive readings: {inactiveCounter}</p>
-                </div>
-            ) : (
-                'Error counting readings'
-            )}
-
+        <div className={styles.list}>
             {filteredData.map(reading => {
                 return <DeviceDataItem reading={reading} key={reading.name} />;
             })}

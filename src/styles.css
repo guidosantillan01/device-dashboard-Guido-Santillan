@@ -1,16 +1,171 @@
 /* Add your CSS here. This file should */
 /* automatically hot reload into the app on save */
 
-.instructions {
-    border: 2px solid #202936;
-    border-radius: 30px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-    width: 500px;
+* {
+    font-family: 'Segoe UI', sans-serif;
+    color: #333;
 }
 
-.device-data-item {
+p,
+h1,
+h2,
+h3 {
+    margin: 0;
+    margin-bottom: 12px;
+}
+
+.container {
+    /* margin: 12px auto; */
+    margin-bottom: 0;
+    padding: 12px;
+    /* background: #eee; */
+}
+
+.item {
+    margin: 16px;
+    padding: 16px;
+    min-width: 230px;
+    background: #eee;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 620px) {
+    .item {
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 560px) {
+    .item {
+        width: 500px;
+    }
+}
+
+.item button {
+    padding: 8px;
+    background: white;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+}
+
+.item button:hover {
+    color: #eeeeee;
+    background: #434343;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+    box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+    transition: all 0.4s ease 0s;
+}
+
+.statusActive {
+    margin: 0;
+    margin-bottom: 8px;
+
+    background: #33cc66;
+    color: #252a34;
+    padding: 12px;
+    font-weight: 500;
+
+    text-align: center;
+}
+
+.statusInactive {
+    margin: 0;
+    margin-bottom: 8px;
+
+    color: white;
+    background: #ff2e63;
+    padding: 12px;
+
+    border: #ff2e63;
+    border-style: dashed;
+
+    text-align: center;
+}
+
+.tag {
+    color: #888;
+}
+
+.data {
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.name {
+    color: #eaeaea;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.info {
+    background: #252a34;
+    text-align: center;
     padding: 10px;
-    border: 2px;
+    margin: 0;
+    margin-bottom: 8px;
+}
+
+.values {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.value {
+    color: #eaeaea;
+    font-size: 30px;
+    font-weight: 700;
+    font-family: monospace;
+}
+
+.unit {
+    margin-left: 10px;
+    color: #eaeaea;
+    font-size: 18px;
+}
+
+.timestamp {
+    color: #888;
+    font-size: 16px;
+}
+
+.counter {
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.label {
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.eraseButton {
+    color: #eee;
+    background: #252a34;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+}
+
+.flexContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
