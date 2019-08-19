@@ -53,15 +53,14 @@ class App extends Component {
     }
 
     render() {
-        const { data, nameFilter } = this.state;
+        const { data } = this.state;
         return (
             <div>
                 <h1>Relayr Device Dashboard</h1>
                 <h3>by Guido Santillan.</h3>
-                <SearchForm onFilterChange={this.handleFilterChange} />
+                <SearchForm />
                 <DeviceData
                     data={data}
-                    nameFilter={nameFilter}
                     handleReadingStatusChange={this.handleReadingStatusChange}
                 />
             </div>

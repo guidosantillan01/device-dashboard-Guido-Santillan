@@ -12,7 +12,6 @@ class SearchForm extends Component {
 
     handleFormChanges(e) {
         e.preventDefault();
-        this.props.onFilterChange(e.target.value);
         this.props.dispatch(filterText(e.target.value));
     }
 

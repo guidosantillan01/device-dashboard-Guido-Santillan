@@ -1,9 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 import DeviceDataItem from './DeviceDataItem';
 import filterByName from './selector/filterByName';
 
-const DeviceData = ({ data, nameFilter, handleReadingStatusChange }) => {
+const DeviceData = ({ data, handleReadingStatusChange, filterText }) => {
     let activeCounter = 0;
     let inactiveCounter = 0;
 
@@ -15,7 +16,7 @@ const DeviceData = ({ data, nameFilter, handleReadingStatusChange }) => {
         }
     });
 
-    const filteredData = filterByName(data, nameFilter);
+    const filteredData = filterByName(data, filterText);
 
     return (
         <div>
@@ -41,4 +42,10 @@ const DeviceData = ({ data, nameFilter, handleReadingStatusChange }) => {
     );
 };
 
-export default DeviceData;
+const mapStateToProps = state => {
+    return {
+        filterText: state.filterText,
+    };
+};
+
+export default connect(mapStateToProps)(DeviceData);
