@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import DeviceDataItem from './DeviceDataItem';
 import filterByName from './selector/filterByName';
 
-const DeviceData = ({ data, filterText, handleReadingStatusChange }) => {
+const DeviceData = ({ data, filterText }) => {
     let activeCounter = 0;
     let inactiveCounter = 0;
 
@@ -30,13 +30,7 @@ const DeviceData = ({ data, filterText, handleReadingStatusChange }) => {
             )}
 
             {filteredData.map(reading => {
-                return (
-                    <DeviceDataItem
-                        reading={reading}
-                        key={reading.name}
-                        handleReadingStatusChange={handleReadingStatusChange}
-                    />
-                );
+                return <DeviceDataItem reading={reading} key={reading.name} />;
             })}
         </div>
     );

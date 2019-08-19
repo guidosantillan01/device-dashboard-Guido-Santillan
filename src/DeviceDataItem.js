@@ -1,6 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-const DeviceDataItem = ({ reading, handleReadingStatusChange }) => {
+import { startChangeStatus } from './actions';
+
+const DeviceDataItem = ({ reading, dispatch }) => {
     const { active, name, timestamp, unit, value } = reading;
 
     return (
@@ -8,7 +11,7 @@ const DeviceDataItem = ({ reading, handleReadingStatusChange }) => {
             <p>{active ? 'Active' : 'Inactive'}</p>
             <button
                 onClick={() => {
-                    handleReadingStatusChange(name, active);
+                    dispatch(startChangeStatus(name, active));
                 }}
             >
                 Change status
@@ -21,4 +24,4 @@ const DeviceDataItem = ({ reading, handleReadingStatusChange }) => {
     );
 };
 
-export default DeviceDataItem;
+export default connect()(DeviceDataItem);
