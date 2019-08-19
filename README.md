@@ -48,7 +48,7 @@ npm start
 
 ## Things to Improve in the Future
 
--   Add a message that warns the user when there has been an error in the _change status_ request
+-   Add a message that warns the user when there has been an error in the _change status_ request. **[DONE]**
 -   Include more sorting options for the readings.
 -   Filter by readings by category:
     -   acceleration
