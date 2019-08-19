@@ -3,11 +3,13 @@ import {
     FILTER_TEXT,
     CHANGE_STATUS,
     RESET_FILTERS,
+    SHOW_ERROR_MESSAGE,
 } from '../actions/types';
 
 const INITIAL_STATE = {
     data: [],
     filterText: '',
+    errorMessage: '',
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -36,6 +38,12 @@ export default (state = INITIAL_STATE, action) => {
                 ...state,
                 filterText: '',
             };
+        case SHOW_ERROR_MESSAGE:
+            return {
+                ...state,
+                errorMessage: action.payload.errorMessage,
+            };
+
         default:
             return state;
     }

@@ -1,4 +1,11 @@
-import { FETCH_DATA, FILTER_TEXT, CHANGE_STATUS, RESET_FILTERS } from './types';
+import {
+    FETCH_DATA,
+    FILTER_TEXT,
+    CHANGE_STATUS,
+    RESET_FILTERS,
+    SHOW_ERROR_MESSAGE,
+    REMOVE_ERROR_MESSAGE,
+} from './types';
 
 import getDevicesData from '../api/getDevicesData';
 import changeReadingStatus from '../api/changeReadingStatus';
@@ -36,7 +43,11 @@ export const startChangeStatus = (name, status) => {
             const newStatus = !status;
             const res = await changeReadingStatus(name, newStatus);
             if (res.ok) {
-                return dispatch(changeStatus(name, newStatus));
+                dispatch(changeStatus(name, newStatus));
+                dispatch(showErrorMessage(undefined));
+                return;
+            } else {
+                return dispatch(showErrorMessage(name));
             }
         } catch (error) {
             throw new Error(error);
@@ -53,4 +64,11 @@ export const filterText = text => ({
 
 export const resetFilters = () => ({
     type: RESET_FILTERS,
+});
+
+export const showErrorMessage = errorMessage => ({
+    type: SHOW_ERROR_MESSAGE,
+    payload: {
+        errorMessage,
+    },
 });
