@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { filterText, resetFilters } from './actions';
+import { filterText, resetFilters } from '../actions';
 
-import styles from './styles.css';
+import styles from '../styles.css';
 
 class SearchForm extends Component {
     constructor(props) {

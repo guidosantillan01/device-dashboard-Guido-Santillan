@@ -1,6 +1,6 @@
 import '@babel/polyfill';
 
-import getDevicesData from './api/getDevicesData';
+import getDevicesData from '../api/getDevicesData';
 
 const testDevicesData = [
     {

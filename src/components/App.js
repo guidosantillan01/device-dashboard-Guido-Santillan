@@ -5,9 +5,9 @@ import DeviceData from './DeviceData';
 import SearchForm from './SearchForm';
 import StatusCounter from './StatusCounter';
 
-import { startFetchData } from './actions';
+import { startFetchData } from '../actions';
 
-import styles from './styles.css';
+import styles from '../styles.css';
 
 class App extends Component {
     constructor(props) {

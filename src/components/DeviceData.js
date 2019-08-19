@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 
 import DeviceDataItem from './DeviceDataItem';
 
-import filterByName from './selector/filterByName';
+import filterByName from '../selector/filterByName';
 
-import styles from './styles.css';
+import styles from '../styles.css';
 
 const DeviceData = ({ data, filterText }) => {
     const filteredData = filterByName(data, filterText);
