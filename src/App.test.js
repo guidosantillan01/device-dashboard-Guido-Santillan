@@ -1,8 +1,5 @@
 import '@babel/polyfill';
-import React from 'react';
-import { render } from '@testing-library/react';
 
-import App from './App';
 import getDevicesData from './api/getDevicesData';
 
 const testDevicesData = [
@@ -37,14 +34,6 @@ function mockFetch(data) {
         }),
     );
 }
-
-// describe('App Rendering Tests', () => { //! Fix this issue
-//     test('Should render Search bar', () => {
-//         const { getByTestId } = render(<App />);
-
-//         expect(getByTestId('filter-by-name-input')).toBeInTheDocument();
-//     });
-// });
 
 describe('API requests Tests', () => {
     test('Should fetch data from devices', async () => {
