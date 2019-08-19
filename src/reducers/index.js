@@ -1,4 +1,9 @@
-import { FETCH_DATA, FILTER_TEXT, CHANGE_STATUS } from '../actions/types';
+import {
+    FETCH_DATA,
+    FILTER_TEXT,
+    CHANGE_STATUS,
+    RESET_FILTERS,
+} from '../actions/types';
 
 const INITIAL_STATE = {
     data: [],
@@ -25,6 +30,11 @@ export default (state = INITIAL_STATE, action) => {
                         ? { ...reading, active: action.payload.newStatus }
                         : reading,
                 ),
+            };
+        case RESET_FILTERS:
+            return {
+                ...state,
+                filterText: '',
             };
         default:
             return state;

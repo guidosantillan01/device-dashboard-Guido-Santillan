@@ -1,4 +1,4 @@
-import { FETCH_DATA, FILTER_TEXT, CHANGE_STATUS } from './types';
+import { FETCH_DATA, FILTER_TEXT, CHANGE_STATUS, RESET_FILTERS } from './types';
 
 import getDevicesData from '../api/getDevicesData';
 import changeReadingStatus from '../api/changeReadingStatus';
@@ -49,4 +49,8 @@ export const filterText = text => ({
     payload: {
         text,
     },
+});
+
+export const resetFilters = () => ({
+    type: RESET_FILTERS,
 });
