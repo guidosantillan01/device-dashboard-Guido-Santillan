@@ -16,7 +16,7 @@ const StatusCounter = ({ data }) => {
     });
 
     return (
-        <div className={styles.container}>
+        <div className={styles.section}>
             <div className={styles.flexContainer}>
                 {activeCounter + inactiveCounter === data.length ? (
                     <div>

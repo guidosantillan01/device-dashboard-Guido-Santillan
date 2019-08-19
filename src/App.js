@@ -20,7 +20,7 @@ class App extends Component {
 
     render() {
         return (
-            <div>
+            <div className={styles.container}>
                 <div className={styles.container}>
                     <h1>Relayr Device Dashboard</h1>
                     <h3>by Guido Santillan</h3>
