@@ -9,7 +9,11 @@ import rootReducer from './reducers';
 import styles from './styles.css';
 import App from './App';
 
-const store = createStore(rootReducer);
+const store = createStore(
+    rootReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ &&
+        window.__REDUX_DEVTOOLS_EXTENSION__(),
+);
 
 function render(Component) {
     ReactDOM.render(
