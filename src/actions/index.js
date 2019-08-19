@@ -1,4 +1,4 @@
-import { FETCH_DATA } from './types';
+import { FETCH_DATA, FILTER_TEXT } from './types';
 
 import getDevicesData from '../api/getDevicesData';
 
@@ -19,5 +19,14 @@ export const startFetchData = () => {
         } catch (error) {
             throw new Error();
         }
+    };
+};
+
+export const filterText = text => {
+    return {
+        type: FILTER_TEXT,
+        payload: {
+            text,
+        },
     };
 };
