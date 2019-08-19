@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import DeviceData from './DeviceData';
 import SearchForm from './SearchForm';
 import getDevicesData from './api/getDevicesData';
 import changeReadingStatus from './api/changeReadingStatus';
+import { startFetchData } from './actions';
 
 class App extends Component {
     constructor(props) {
@@ -20,14 +22,15 @@ class App extends Component {
     }
 
     async componentDidMount() {
-        try {
-            const response = await getDevicesData();
-            if (response) {
-                this.setState({ data: response.data });
-            }
-        } catch (error) {
-            throw new Error(error);
-        }
+        this.props.dispatch(startFetchData());
+        // try {
+        //     const response = await getDevicesData();
+        //     if (response) {
+        //         this.setState({ data: response.data });
+        //     }
+        // } catch (error) {
+        //     throw new Error(error);
+        // }
     }
 
     handleFilterChange(filterText) {
@@ -60,7 +63,6 @@ class App extends Component {
                 <h3>by Guido Santillan.</h3>
                 <SearchForm />
                 <DeviceData
-                    data={data}
                     handleReadingStatusChange={this.handleReadingStatusChange}
                 />
             </div>
@@ -68,4 +70,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default connect()(App);

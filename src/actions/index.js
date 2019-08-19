@@ -17,7 +17,7 @@ export const startFetchData = () => {
             const response = await getDevicesData();
             return dispatch(fetchData(response));
         } catch (error) {
-            throw new Error();
+            throw new Error(error);
         }
     };
 };
