@@ -2,16 +2,17 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { filterText, resetFilters } from './actions';
+
 import styles from './styles.css';
 
 class SearchForm extends Component {
     constructor(props) {
         super(props);
 
-        this.handleFormChanges = this.handleFormChanges.bind(this);
+        this.handleInputChanges = this.handleInputChanges.bind(this);
     }
 
-    handleFormChanges(e) {
+    handleInputChanges(e) {
         e.preventDefault();
         this.props.dispatch(filterText(e.target.value));
     }
@@ -24,7 +25,7 @@ class SearchForm extends Component {
                 </p>
                 <div className={styles.flexContainer}>
                     <input
-                        onChange={this.handleFormChanges}
+                        onChange={this.handleInputChanges}
                         type="text"
                         data-testid="filter-by-name-input"
                         value={this.props.filterText}

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import DeviceDataItem from './DeviceDataItem';
+
 import filterByName from './selector/filterByName';
 
 import styles from './styles.css';
