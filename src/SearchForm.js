@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import { filterText } from './actions';
 
 class SearchForm extends Component {
     constructor(props) {
@@ -10,6 +13,7 @@ class SearchForm extends Component {
     handleFormChanges(e) {
         e.preventDefault();
         this.props.onFilterChange(e.target.value);
+        this.props.dispatch(filterText(e.target.value));
     }
 
     render() {
@@ -23,4 +27,4 @@ class SearchForm extends Component {
     }
 }
 
-export default SearchForm;
+export default connect()(SearchForm);
