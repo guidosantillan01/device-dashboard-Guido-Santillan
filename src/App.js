@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import DeviceData from './DeviceData';
 import SearchForm from './SearchForm';
+import getDevicesData from './api/getDevicesData';
+import changeReadingStatus from './api/changeReadingStatus';
 
 class App extends Component {
     constructor(props) {
@@ -19,10 +21,7 @@ class App extends Component {
 
     async componentDidMount() {
         try {
-            const res = await fetch('http://localhost:8888/devices', {
-                method: 'GET',
-            });
-            const response = await res.json();
+            const response = await getDevicesData();
             if (response) {
                 this.setState({ data: response.data });
             }
@@ -38,10 +37,7 @@ class App extends Component {
     async handleReadingStatusChange(readingName, readingStatus) {
         try {
             const newStatus = !readingStatus;
-            const res = await fetch(
-                `http://127.0.0.1:8888/devices/${readingName}?active=${newStatus}`,
-                { method: 'PATCH' },
-            );
+            const res = await changeReadingStatus(readingName, newStatus);
             if (res.ok) {
                 this.setState(prevState => ({
                     data: prevState.data.map(reading => {
