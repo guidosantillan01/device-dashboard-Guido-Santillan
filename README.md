@@ -56,6 +56,7 @@ npm start
     -   orientation
     -   latitude
 -   Improve CSS transitions and add animations.
+-   Add more test cases.
 
 ---
 
@@ -82,14 +83,6 @@ Please the `API_DOCS.MD` file for information on the API endpoints available.
 ## Extra Credit
 
 Finishing the above acceptance criteria is enough to submit the challenge, and we don't expect you to do any more. That said, you are welcome to implement anything further that you'd like and we'll keep it in mind. Again, extra work is not required at all: a good basic solution will be graded higher than an OK solution with more features.
-
-## Getting started
-
-To run the server locally: `npm run start`
-
-## Prerequisites
-
-To install dependencies: `npm install`
 
 ## Notes
 
