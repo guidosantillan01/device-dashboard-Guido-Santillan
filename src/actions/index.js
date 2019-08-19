@@ -15,7 +15,8 @@ export const startFetchData = () => {
     return async dispatch => {
         try {
             const response = await getDevicesData();
-            return dispatch(fetchData(response));
+            const data = response.data;
+            return dispatch(fetchData(data));
         } catch (error) {
             throw new Error(error);
         }

@@ -10,7 +10,7 @@ export default (state = INITIAL_STATE, action) => {
         case FETCH_DATA:
             return {
                 ...state,
-                data: [action.payload],
+                data: action.payload.data,
             };
         case FILTER_TEXT:
             return {
